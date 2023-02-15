@@ -91,7 +91,7 @@ jobs:
 
       - name: Set Testbench Version
         run: composer require --dev orchestra/testbench:^8.0
-        if: matrix.laravel-constrain == 10.*
+        if: matrix.laravel-constrain == '10.*''
 
       - name: "Install dependencies"
         uses: "ramsey/composer-install@v2"
