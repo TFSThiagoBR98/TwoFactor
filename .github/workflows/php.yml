@@ -90,7 +90,7 @@ jobs:
         run: composer require "illuminate/config:^${{ matrix.laravel-constrain }}" "illuminate/validation:^${{ matrix.laravel-constrain }}" "illuminate/database:^${{ matrix.laravel-constrain }}" "illuminate/support:^${{ matrix.laravel-constrain }}" "illuminate/http:^${{ matrix.laravel-constrain }}" "illuminate/auth:^${{ matrix.laravel-constrain }}" --no-interaction --no-update
 
       - name: Set Testbench Version
-        run: composer require --dev orchestra/testbench:^8.0
+        run: composer require --dev orchestra/testbench:^8.0 --no-interaction --no-update
         if: matrix.laravel-constrain >= 10.0
 
       - name: "Install dependencies"
