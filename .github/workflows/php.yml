@@ -86,6 +86,9 @@ jobs:
         run: composer require --dev orchestra/testbench:^7.10 --no-interaction --no-update
         if: matrix.php-version >= 8.2
 
+      - name: Set Laravel Version
+        run: composer require "illuminate/config:${{ matrix.laravel-constrain }}" "illuminate/validation:${{ matrix.laravel-constrain }}" "illuminate/database:${{ matrix.laravel-constrain }}" "illuminate/support:${{ matrix.laravel-constrain }}" "illuminate/http:${{ matrix.laravel-constrain }}" "illuminate/auth:${{ matrix.laravel-constrain }}" --no-interaction --no-update
+
       - name: "Install dependencies"
         uses: "ramsey/composer-install@v2"
         with:
