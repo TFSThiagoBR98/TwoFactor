@@ -55,8 +55,8 @@ jobs:
           - "8.1"
           - "8.2"
         laravel-constrain:
-          - "9.*"
-          - "10.*"
+          - "9.0"
+          - "10.0"
         dependencies:
           - "lowest"
           - "highest"
@@ -87,11 +87,11 @@ jobs:
         if: matrix.php-version >= 8.2
 
       - name: Set Laravel Version
-        run: composer require "illuminate/config:${{ matrix.laravel-constrain }}" "illuminate/validation:${{ matrix.laravel-constrain }}" "illuminate/database:${{ matrix.laravel-constrain }}" "illuminate/support:${{ matrix.laravel-constrain }}" "illuminate/http:${{ matrix.laravel-constrain }}" "illuminate/auth:${{ matrix.laravel-constrain }}" --no-interaction --no-update
+        run: composer require "illuminate/config:^${{ matrix.laravel-constrain }}" "illuminate/validation:^${{ matrix.laravel-constrain }}" "illuminate/database:^${{ matrix.laravel-constrain }}" "illuminate/support:^${{ matrix.laravel-constrain }}" "illuminate/http:^${{ matrix.laravel-constrain }}" "illuminate/auth:^${{ matrix.laravel-constrain }}" --no-interaction --no-update
 
       - name: Set Testbench Version
         run: composer require --dev orchestra/testbench:^8.0
-        if: matrix.laravel-constrain == '10.*''
+        if: matrix.laravel-constrain >= 10.0
 
       - name: "Install dependencies"
         uses: "ramsey/composer-install@v2"
